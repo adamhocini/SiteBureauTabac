@@ -65,18 +65,21 @@ const Home: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {services.map((service, index) => (
-              <div 
-                key={index}
-                className="bg-zinc-800/50 border border-zinc-700 rounded-lg p-6 hover:bg-zinc-800 transition-all duration-300 hover:scale-105"
-              >
-                <div className="bg-red-900/20 p-3 rounded-lg w-fit mb-4">
-                  <service.icon className="h-8 w-8 text-red-400" />
+            {services.map((service, index) => {
+              const Icon = service.icon;
+              return (
+                <div
+                  key={index}
+                  className="bg-zinc-800/50 border border-zinc-700 rounded-lg p-6 hover:bg-zinc-800 transition-all duration-300 hover:scale-105"
+                >
+                  <div className="bg-red-900/20 p-3 rounded-lg w-fit mb-4">
+                    <Icon className="h-8 w-8 text-red-400" />
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2">{service.title}</h3>
+                  <p className="text-zinc-400 text-sm">{service.description}</p>
                 </div>
-                <h3 className="text-lg font-semibold mb-2">{service.title}</h3>
-                <p className="text-zinc-400 text-sm">{service.description}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
