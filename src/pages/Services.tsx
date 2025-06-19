@@ -154,18 +154,20 @@ const Services: React.FC = () => {
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {services.map((service, index) => (
-            <div 
-              key={index}
-              className="bg-zinc-900/50 border border-zinc-700 rounded-lg p-8 hover:bg-zinc-900 transition-all duration-300"
-            >
-              <div className="flex items-start space-x-4">
-                <div className="bg-red-900/20 p-3 rounded-lg flex-shrink-0">
-                  <service.icon className="h-8 w-8 text-red-400" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-                  <p className="text-zinc-400 mb-4">{service.description}</p>
+          {services.map((service, index) => {
+            const Icon = service.icon;
+            return (
+              <div
+                key={index}
+                className="bg-zinc-900/50 border border-zinc-700 rounded-lg p-8 hover:bg-zinc-900 transition-all duration-300"
+              >
+                <div className="flex items-start space-x-4">
+                  <div className="bg-red-900/20 p-3 rounded-lg flex-shrink-0">
+                    <Icon className="h-8 w-8 text-red-400" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
+                    <p className="text-zinc-400 mb-4">{service.description}</p>
                   
                   <ul className="space-y-2">
                     {service.details.map((detail, detailIndex) => (
@@ -186,8 +188,9 @@ const Services: React.FC = () => {
                   )}
                 </div>
               </div>
-            </div>
-          ))}
+              </div>
+            );
+          })}
         </div>
 
         {/* Additional Info */}
